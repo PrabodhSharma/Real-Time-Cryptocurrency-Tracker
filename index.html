@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crypto Tracker</title>
+    <link rel="stylesheet" href="./css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>Crypto Tracker</h1>
+            <div class="header-controls">
+                <input type="text" id="search-input" placeholder="Search cryptocurrencies...">
+                <select id="sort-select">
+                    <option value="market_cap_desc">Sort by Market Cap (Descending)</option>
+                    <option value="market_cap_asc">Sort by Market Cap (Ascending)</option>
+                    <option value="price_asc">Sort by Price (Low to High)</option>
+                    <option value="price_desc">Sort by Price (High to Low)</option>
+                    <option value="change_asc">Sort by 24h Change (Low to High)</option>
+                    <option value="change_desc">Sort by 24h Change (High to Low)</option>
+                </select>
+            </div>
+        </header>
+
+        <div id="comparison-section" class="comparison-section"></div>
+
+        <div class="table-container">
+            <table class="crypto-table">
+                <thead>
+                    <tr>
+                        <th>SN</th>
+                        <th>Name</th>
+                        <th>Price</th>
+                        <th>24h Change</th>
+                        <th>24h Trend</th>
+                        <th>Market Cap</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="crypto-list"></tbody>
+            </table>
+        </div>
+
+        <div class="footer">
+            <p>Made with ❤️ by Prabodh Sharma</p>
+        </div>
+    </div>
+    <script src="./js/script.js"></script>
+</body>
+</html>
