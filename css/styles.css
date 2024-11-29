@@ -1,0 +1,294 @@
+:root {
+    --bg-dark: #121212;
+    --bg-light-dark: #1E1E1E;
+    --text-primary: #FFFFFF;
+    --text-secondary: #B0B0B0;
+    --accent-blue: #2196F3;
+    --green-positive: #4CAF50;
+    --red-negative: #F44336;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: var(--bg-dark);
+    color: var(--text-primary);
+    /* margin: 0;
+    padding: 0; */
+    display: flex;
+    flex-direction: column;
+    line-height: 1.6;
+}
+
+.container {
+    /* max-width: 1400px; */
+    margin: 0 auto;
+    /* padding: 0 15px; */
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    overflow: hidden;
+}
+
+.header {
+    position: sticky;
+    top: 0;
+    background-color: var(--bg-light-dark);
+    z-index: 100;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    flex-shrink: 0;
+}
+
+.header h1 {
+    margin: 0;
+    font-size: 24px;
+}
+
+.header-controls {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+#search-input {
+    background-color: var(--bg-dark);
+    color: var(--text-primary);
+    border: 1px solid var(--text-secondary);
+    padding: 8px;
+    border-radius: 4px;
+    width: 250px;
+}
+
+#sort-select {
+    background-color: var(--bg-dark);
+    color: var(--text-primary);
+    border: 1px solid var(--text-secondary);
+    padding: 8px;
+    border-radius: 4px;
+}
+
+.comparison-section {
+    position: sticky;
+    top: 70px;
+    background-color: rgba(30,30,30,0.95);
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 20px;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    z-index: 90;
+    overflow-x: auto;
+    max-width: 100%;
+    flex-shrink: 0;
+}
+
+.comparison-crypto {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    background-color: var(--bg-dark);
+    border-radius: 10px;
+    padding: 15px;
+    width: 180px;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.comparison-crypto:hover {
+    transform: scale(1.05);
+}
+
+.remove-comparison {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    color: var(--red-negative);
+    font-size: 20px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.remove-comparison:hover {
+    color: #ff6b6b;
+}
+
+.comparison-crypto .crypto-logo {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 10px;
+    border-radius: 50%;
+}
+
+.table-container {
+    flex-grow: 1;
+    overflow-y: auto;
+    background-color: var(--bg-light-dark);
+    /* border-radius: 8px; */  /* border radius for fetched data rectangle */
+    margin-bottom: 15px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.crypto-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.crypto-table thead {
+    position: sticky;
+    top: 0;
+    background-color: var(--bg-dark);
+    z-index: 80;
+}
+
+.crypto-table th, .crypto-table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.crypto-name {
+    display: flex;
+    align-items: center;
+}
+
+.crypto-logo {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+    border-radius: 50%;
+}
+
+.positive-change {
+    color: var(--green-positive);
+}
+
+.negative-change {
+    color: var(--red-negative);
+}
+
+.trend-chart {
+    width: 100px;
+    height: 30px;
+}
+
+.compare-btn {
+    background-color: var(--accent-blue);
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.compare-btn:hover {
+    background-color: #1976D2;
+}
+
+
+
+/* Modern Scrollbar Styles */
+.container {
+    /* Ensure scrollbar is always visible and styled */
+    scrollbar-width: thin;  /* For Firefox */
+    scrollbar-color: rgba(255, 255, 255, 0.2) rgba(30, 30, 30, 0.1);  /* Thumb and track colors for Firefox */
+}
+
+/* Webkit (Chrome, Safari, newer Edge) Scrollbar */
+.container::-webkit-scrollbar {
+    width: 10px; /* Scrollbar width */
+    background-color: rgba(30, 30, 30, 0.1); /* Track color */
+}
+
+.container::-webkit-scrollbar-track {
+    background-color: rgba(30, 30, 30, 0.1); /* Track color */
+    border-radius: 10px; /* Rounded track */
+}
+
+.container::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.2); /* Thumb color */
+    border-radius: 10px; /* Rounded thumb */
+    border: 2px solid transparent; /* Creates padding effect */
+    background-clip: content-box; /* Allows border to create padding */
+}
+
+.container::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(255, 255, 255, 0.3); /* Darker on hover */
+}
+
+/* Additional cross-browser compatibility */
+.container {
+    -ms-overflow-style: thin;  /* IE and Edge */
+}
+
+
+.footer {
+    background-color: var(--bg-light-dark);
+    color: var(--text-secondary);
+    text-align: center;
+    padding: 15px;
+    flex-shrink: 0;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .header-controls {
+        width: 100%;
+        flex-direction: column;
+    }
+
+    #search-input, #sort-select {
+        width: 100%;
+    }
+
+    .comparison-section {
+        flex-wrap: nowrap;
+        overflow-x: scroll;
+    }
+
+    .comparison-crypto {
+        min-width: 150px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .crypto-table {
+        font-size: 12px;
+    }
+
+    .crypto-table th, .crypto-table td {
+        padding: 8px;
+    }
+
+    .trend-chart {
+        width: 50px;
+        height: 20px;
+    }
+}
