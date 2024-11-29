@@ -11,8 +11,3 @@ Features
     Comparision:  Add up to 5 cryptocurrencies to compare their real-time prices side-by-side.
     Data: Access price data for detailed analysis.
     Market Insights: Get insights into market cap, trading volume, and percentage changes over various timeframes.
-
-
-License
-
-This project is licensed under the MIT License.
