@@ -1,6 +1,5 @@
 // CoinGecko API configuration
 const API_URL = 'https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=50&page=1&sparkline=true';
-const API_KEY = 'CG-SkM4V5d7AoTh2dM5zGJP3duw';
 
 // State management
 let cryptoData = [];
@@ -12,14 +11,15 @@ const cryptoList = document.getElementById('crypto-list');
 const comparisonSection = document.getElementById('comparison-section');
 const sortSelect = document.getElementById('sort-select');
 const searchInput = document.getElementById('search-input');
+const scrollTopBtn = document.getElementById('scroll-top-btn');
 
 // Fetch cryptocurrency data
 async function fetchCryptoData() {
     try {
         const response = await fetch(API_URL, {
-            headers: {
-                'x-cg-pro-api-key': API_KEY
-            }
+            // headers: {
+            //     'x-cg-pro-api-key': API_KEY
+            // }
         });
         cryptoData = await response.json();
         filteredCryptoData = [...cryptoData];
@@ -163,6 +163,22 @@ function removeFromComparison(event) {
     comparedCryptos = comparedCryptos.filter(c => c.id !== cryptoId);
     renderComparisonSection();
 }
+
+// Scroll to top functionality
+scrollTopBtn.addEventListener('click', () => {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+});
+
+// Ensure button is hidden on initial load
+scrollTopBtn.style.display = 'none';
+
+// Show/hide scroll top button
+window.addEventListener('scroll', () => {
+    scrollTopBtn.style.display = window.scrollY > 300 ? 'block' : 'none';
+});
 
 // Event Listeners
 searchInput.addEventListener('input', searchCryptos);
